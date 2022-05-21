@@ -72,5 +72,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 #Assets
-/ExplosivelLLC/
-/Supercyan Character Pack Free Sample/
+Assets/ExplosiveLLC*
+Assets/Supercyan Character Pack Free Sample*
