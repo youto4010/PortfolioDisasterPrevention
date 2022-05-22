@@ -101,6 +101,7 @@ public class PlayerController : MonoBehaviour
                     if(isRightTouch==true)
                     {
                         // 右半分をタッチした時の処理
+                        cameraController.UpdateRightTouch(touch);
                     }
                 }
             }
@@ -156,6 +157,7 @@ public class PlayerController : MonoBehaviour
 
             rigid.AddForce(cameraMove-rigid.velocity,ForceMode.VelocityChange);
         }
+        cameraController.FixedUpdateCameraPosition(this.transform);
     }
     
     public void OnAttackButtonClicked()
