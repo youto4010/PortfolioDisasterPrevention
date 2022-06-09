@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Conversation : MonoBehaviour
 
@@ -27,7 +28,7 @@ public class Conversation : MonoBehaviour
     }
     IEnumerator ShowLog()
     {
-        GameObject objCharacterName = objCanvas.transform.Find("characterName").gameObject;
+        GameObject objCharacterName = objCanvas.transform.Find("CharacterName").gameObject;
         GameObject objContent = objCanvas.transform.Find("Content").gameObject;
 
         objCanvas.SetActive(true);
