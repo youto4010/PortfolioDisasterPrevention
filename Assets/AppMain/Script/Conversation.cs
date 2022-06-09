@@ -30,14 +30,13 @@ public class Conversation : MonoBehaviour
     {
         GameObject objCharacterName = objCanvas.transform.Find("CharacterName").gameObject;
         GameObject objContent = objCanvas.transform.Find("Content").gameObject;
-
+        
         objCanvas.SetActive(true);
 
         for (int i=msgCharacterName.GetLowerBound(0); i<=msgCharacterName.GetUpperBound(0);i++)
         {
             objCharacterName.GetComponent<Text>().text = msgCharacterName[i];
             objContent.GetComponent<Text>().text = msgContent[i];
-
             yield return new WaitUntil(()=>Input.GetKeyDown(KeyCode.Space));
             yield return null;
         }
