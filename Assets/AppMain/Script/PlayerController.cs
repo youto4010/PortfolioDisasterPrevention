@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] GameObject attackHit = null;
-    [SerializeField] float jumpPower =50f;
+    [SerializeField] float jumpPower =20f;
     [SerializeField] ColliderCallReceiver footColliderCall = null;
     [SerializeField] GameObject touchMarker=null;
     [SerializeField] PlayerCameraController cameraController = null;
