@@ -11,10 +11,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] ColliderCallReceiver footColliderCall = null;
     [SerializeField] GameObject touchMarker=null;
     [SerializeField] PlayerCameraController cameraController = null;
+    // 攻撃ヒットオブジェクトのColliderCall
+    [SerializeField] ColliderCallReceiver attackHitCall = null;
     Animator animator = null;
     Rigidbody rigid = null;
     bool isAttack = false;
     bool isGround = false;
+    [System.Serializable]
+    public class Status
+    {
+        // 体力
+        public int Hp = 10;
+        // 攻撃力
+        public int Power = 1;
+    }
+    // 基本ステータス
+    [SerializeField] Status DefaultStatus = new Status();
+    // 現在のステータス
+    public Status CurrentStatus = new Status();
 
     
     // PCキー横方向入力
@@ -28,6 +42,11 @@ public class PlayerController : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         footColliderCall.TriggerStayEvent.AddListener(OnFootTriggerStay);
         footColliderCall.TriggerExitEvent.AddListener(OnFootTriggerExit);
+        // 攻撃判定用コライダーイベント登録
+        attackHitCall.TriggerEnterEvent.AddListener(OnAttackHitTriggerEnter);
+        // 現在のステータスの初期化
+        CurrentStatus.Hp = DefaultStatus.Hp;
+        CurrentStatus.Power = DefaultStatus.Power;
     }
 
     bool isTouch = false;
@@ -203,6 +222,15 @@ public class PlayerController : MonoBehaviour
         Debug.Log("End");
         attackHit.SetActive(false);
         isAttack = false;
+    }
+    void OnAttackHitTriggerEnter(Collider col)
+    {
+        if(col.gameObject.tag == "Danger")
+        {
+            var enemy = col.gameObject.GetComponent<Danger>();
+            enemy?.OnAttackHit(CurrentStatus.Power);
+            attackHit.SetActive(false);
+        }
     }
 
     

@@ -413,10 +413,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 566409587, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1468300425, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
       propertyPath: touchMarker
       value: 
       objectReference: {fileID: 1549228013}
+    - target: {fileID: 1468300425, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
+      propertyPath: attackHitCall
+      value: 
+      objectReference: {fileID: 2375433102730025035}
     - target: {fileID: 1468300425, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
       propertyPath: cameraController
       value: 
@@ -471,6 +479,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
+--- !u!114 &2375433102730025035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 277448321404216151, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
+  m_PrefabInstance: {fileID: 2375433102730025034}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d499b2600a7164ea72e1e250b91d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3245752540572425617
 PrefabInstance:
   m_ObjectHideFlags: 0
