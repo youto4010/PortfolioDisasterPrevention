@@ -13,6 +13,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerCameraController cameraController = null;
     // 攻撃ヒットオブジェクトのColliderCall
     [SerializeField] ColliderCallReceiver attackHitCall = null;
+    // 自身のコライダー
+    [SerializeField] Collider myCollider = null;
+    // 攻撃を受けた時のパーフェクトプレハブ
+    [SerializeField] GameObject hitParticlePrefab = null;
+    // パーティクルオブジェクト保管リスト
+    List<GameObject> particleObjectList = new List<GameObject>();
     Animator animator = null;
     Rigidbody rigid = null;
     bool isAttack = false;
@@ -228,13 +234,18 @@ public class PlayerController : MonoBehaviour
         if(col.gameObject.tag == "Danger")
         {
             var enemy = col.gameObject.GetComponent<Danger>();
-            enemy?.OnAttackHit(CurrentStatus.Power);
+            enemy?.OnAttackHit(CurrentStatus.Power,this.transform.position);
             attackHit.SetActive(false);
         }
     }
-    public void OnEnemyAttackHit(int damage)
+    public void OnEnemyAttackHit(int damage,Vector3 attackPosition)
     {
         CurrentStatus.Hp -= damage;
+        var pos =myCollider.ClosestPoint(attackPosition);
+        var obj = Instantiate(hitParticlePrefab,pos,Quaternion.identity);
+        var par = obj.GetComponent<ParticleSystem>();
+        StartCoroutine(WaitDestroy(par));
+        particleObjectList.Add(obj);
 
         if(CurrentStatus.Hp <=0)
         {
@@ -248,6 +259,18 @@ public class PlayerController : MonoBehaviour
     void OnDie()
     {
         Debug.Log("死亡した。");
+        StopAllCoroutines();
+        if(particleObjectList.Count>0)
+        {
+            foreach(var obj in particleObjectList) Destroy(obj);
+            particleObjectList.Clear();
+        }
+    }
+    IEnumerator WaitDestroy(ParticleSystem particle)
+    {
+        yield return new WaitUntil(()=>particle.isPlaying == false);
+        if(particleObjectList.Contains(particle.gameObject)==true)particleObjectList.Remove(particle.gameObject);
+        Destroy(particle.gameObject);
     }
 
     

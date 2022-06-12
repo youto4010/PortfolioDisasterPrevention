@@ -477,6 +477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MobileMaleFree1 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6770224430927282140, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
 --- !u!114 &2375433102730025035 stripped
