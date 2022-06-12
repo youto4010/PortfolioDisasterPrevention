@@ -232,6 +232,23 @@ public class PlayerController : MonoBehaviour
             attackHit.SetActive(false);
         }
     }
+    public void OnEnemyAttackHit(int damage)
+    {
+        CurrentStatus.Hp -= damage;
+
+        if(CurrentStatus.Hp <=0)
+        {
+            OnDie();
+        }
+        else
+        {
+            Debug.Log( damage + "のダメージを受けた！残りHP" + CurrentStatus.Hp);
+        }
+    }
+    void OnDie()
+    {
+        Debug.Log("死亡した。");
+    }
 
     
     
