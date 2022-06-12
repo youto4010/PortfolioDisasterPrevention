@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Danger : MonoBehaviour
 {
@@ -21,6 +23,10 @@ public class Danger : MonoBehaviour
     [SerializeField] ColliderCallReceiver aroundColliderCall = null; 
     [SerializeField] float attackInterval = 3f;
     [SerializeField] ColliderCallReceiver attackHitColliderCall = null;
+    // 自身のコライダー
+    [SerializeField] Collider myCollider = null;
+    // 攻撃ヒット時エフェクトプレハブ
+    [SerializeField] GameObject hitParticlePrefab =null;
     bool isBattle=false;
     float attackTimer=0f;
     // Start is called before the first frame update
@@ -56,10 +62,15 @@ public class Danger : MonoBehaviour
             attackTimer=0;
         }
     }
-    public void OnAttackHit(int damage)
+    public void OnAttackHit(int damage,Vector3 attackPosition)
     {
         CurrentStatus.Hp -= damage;
         Debug.Log("Hit Damage"+ damage + "/CurrentHp =" + CurrentStatus.Hp);
+        var pos = myCollider.ClosestPoint(attackPosition);
+        var obj = Instantiate(hitParticlePrefab,pos,Quaternion.identity);
+        var par = obj.GetComponent<ParticleSystem>();
+        StartCoroutine(WaitDestroy(par));
+
 
         if(CurrentStatus.Hp <0)
         {
@@ -98,9 +109,14 @@ public class Danger : MonoBehaviour
         {
             Debug.Log("Playerは" + CurrentStatus.Power +"ダメージ受けた");
             var player = other.GetComponent<PlayerController>();
-            player?.OnEnemyAttackHit(CurrentStatus.Power);
+            player?.OnEnemyAttackHit(CurrentStatus.Power,this.transform.position);
             attackHitColliderCall.gameObject.SetActive(false);
         }
+    }
+    IEnumerator WaitDestroy(ParticleSystem particle)
+    {
+        yield return new WaitUntil(()=>particle.isPlaying == false);
+        Destroy(particle.gameObject);
     }
 
 }
