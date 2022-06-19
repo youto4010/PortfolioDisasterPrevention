@@ -29,6 +29,12 @@ public class Danger : MonoBehaviour
     [SerializeField] GameObject hitParticlePrefab =null;
     bool isBattle=false;
     float attackTimer=0f;
+    // 攻撃状態フラグ
+    public bool IsBattle = false;
+    // 開始位置
+    Vector3 startPosition = new Vector3();
+    // 開始角度
+    Quaternion startRotation = new Quaternion();
     // Start is called before the first frame update
     void Start()
     {
@@ -42,13 +48,16 @@ public class Danger : MonoBehaviour
         // 攻撃コライダーイベント登録
         attackHitColliderCall.TriggerEnterEvent.AddListener(OnAttackTriggerEnter);
         attackHitColliderCall.gameObject.SetActive(false);
+        // 開始時の位置を保管
+        startPosition = this.transform.position;
+        startRotation = this.transform.rotation;
     }
 
     // Update is called once per frame
     void Update()
     {
         // 攻撃できる状態の時
-        if(isBattle == true)
+        if(IsBattle == true)
         {
             attackTimer += Time.deltaTime;
 
@@ -117,6 +126,17 @@ public class Danger : MonoBehaviour
     {
         yield return new WaitUntil(()=>particle.isPlaying == false);
         Destroy(particle.gameObject);
+    }
+    public void OnRetry()
+    {
+        // 現在のステータスを基本ステータスとして設定
+        CurrentStatus.Hp = DefaultStatus.Hp;
+        CurrentStatus.Power = DefaultStatus.Power;
+        // 開始時の位置回転を保管
+        this.transform.position = startPosition;
+        this.transform.rotation = startRotation;
+        // 敵の再度表示
+        this.gameObject.SetActive(true);
     }
 
 }

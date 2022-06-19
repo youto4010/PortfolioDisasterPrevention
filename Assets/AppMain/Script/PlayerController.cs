@@ -41,6 +41,12 @@ public class PlayerController : MonoBehaviour
     float horizontalKeyInput = 0;
     // PCキー縦方向入力
     float verticalKeyInput = 0;
+    // ゲームオーバー時イベント
+    public UnityEvent GameOverEvent = new UnityEvent();
+    // 開始位置
+    Vector3 startPosition = new Vector3();
+    // 開始角度
+    Quaternion startRotation = new Quaternion();
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -53,6 +59,9 @@ public class PlayerController : MonoBehaviour
         // 現在のステータスの初期化
         CurrentStatus.Hp = DefaultStatus.Hp;
         CurrentStatus.Power = DefaultStatus.Power;
+        // 開始時の一回転を保管
+        startPosition = this.transform.position;
+        startRotation = this.transform.rotation;
     }
 
     bool isTouch = false;
@@ -265,12 +274,25 @@ public class PlayerController : MonoBehaviour
             foreach(var obj in particleObjectList) Destroy(obj);
             particleObjectList.Clear();
         }
+        GameOverEvent?.Invoke();
     }
     IEnumerator WaitDestroy(ParticleSystem particle)
     {
         yield return new WaitUntil(()=>particle.isPlaying == false);
         if(particleObjectList.Contains(particle.gameObject)==true)particleObjectList.Remove(particle.gameObject);
         Destroy(particle.gameObject);
+    }
+    public void Retry()
+    {
+        // 現在のステータスの初期化
+        CurrentStatus.Hp = DefaultStatus.Hp;
+        CurrentStatus.Power = DefaultStatus.Power;
+        // 一回転を初期位置に戻す
+        this.transform.position = startPosition;
+        this.transform.rotation = startRotation;
+
+        // 攻撃処理の途中でやられた時用
+        isAttack = false;
     }
 
     
