@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject hitParticlePrefab = null;
     // パーティクルオブジェクト保管リスト
     List<GameObject> particleObjectList = new List<GameObject>();
+    [SerializeField] Slider hpBar= null;
     Animator animator = null;
     Rigidbody rigid = null;
     bool isAttack = false;
@@ -62,6 +64,10 @@ public class PlayerController : MonoBehaviour
         // 開始時の一回転を保管
         startPosition = this.transform.position;
         startRotation = this.transform.rotation;
+
+        // スライダーの初期設定
+        hpBar.maxValue = DefaultStatus.Hp;
+        hpBar.value = CurrentStatus.Hp;
     }
 
     bool isTouch = false;
@@ -293,6 +299,8 @@ public class PlayerController : MonoBehaviour
 
         // 攻撃処理の途中でやられた時用
         isAttack = false;
+
+        hpBar.value = CurrentStatus.Hp;
     }
 
     
