@@ -53,6 +53,9 @@ public class EnemyBase : MonoBehaviour
  
     //! HPバーのスライダー.
     [SerializeField] Slider hpBar = null;
+    // 死亡時イベント
+    public EnemyMoveEvent DestroyEvent = new EnemyMoveEvent();
+    
  
     void Start()
     {
@@ -159,7 +162,7 @@ public class EnemyBase : MonoBehaviour
     // ----------------------------------------------------------
     void Anim_DieEnd()
     {
-        this.gameObject.SetActive(false);
+        DestroyEvent?.Invoke(this);
     }
  
     // ------------------------------------------------------------
