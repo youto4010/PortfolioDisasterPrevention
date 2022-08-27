@@ -827,7 +827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1468300422, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
       propertyPath: m_Drag
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1468300425, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
       propertyPath: hpBar
@@ -1117,8 +1117,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 1331814251}
+  gameClear: {fileID: 0}
   player: {fileID: 1468300425}
-  enemys: []
+  enemyTargets: []
+  enemyPrefabList: []
+  enemyGateList: []
+  bossPrefab: {fileID: 0}
 --- !u!1001 &7421156259981863477
 PrefabInstance:
   m_ObjectHideFlags: 0
