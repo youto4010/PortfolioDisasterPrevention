@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.AI;
  
 public class EnemyBase : MonoBehaviour
 {
@@ -53,11 +55,18 @@ public class EnemyBase : MonoBehaviour
  
     //! HPバーのスライダー.
     [SerializeField] Slider hpBar = null;
+    // 敵の移動イベント定義クラス
+    public class EnemyMoveEvent : UnityEvent<EnemyBase>{}
+    // 目的地設定イベント
+    public EnemyMoveEvent ArrivalEvent = new EnemyMoveEvent();
     // 死亡時イベント
     public EnemyMoveEvent DestroyEvent = new EnemyMoveEvent();
-    
+    // ナビメッシュ
+    NavMeshAgent navMeshAgent = null;
+    // 現在設定されている目的地
+    Transform currentTarget = null;
  
-    void Start()
+    protected virtual void Start()
     {
         // Animatorを取得し保管.
         animator = GetComponent<Animator>();
@@ -85,12 +94,13 @@ public class EnemyBase : MonoBehaviour
         hpBar.value = CurrentStatus.Hp;
     }
  
-    void Update()
+    protected virtual void Update()
     {
         // 攻撃できる状態の時.
         if (IsBattle == true)
         {
             attackTimer += Time.deltaTime;
+            animator.SetBool("isRun",false);
  
             if (attackTimer >= 3f)
             {
@@ -101,10 +111,26 @@ public class EnemyBase : MonoBehaviour
         else
         {
             attackTimer = 0;
+
+            if(currentTarget = null)
+            {
+                animator.SetBool("isRun",false);
+
+                ArrivalEvent?.Invoke(this);
+                Debug.Log(gameObject.name + "移動開始.");
+            }
+            else
+            {
+                animator.SetBool("isRun",true);
+
+                var sqrDistance = (currentTarget.position - this.transform.position).sqrMagnitude;
+                if(sqrDistance < 3f)
+                {
+                    ArrivalEvent?.Invoke(this);
+                }
+            }
         }
     }
- 
- 
     // ----------------------------------------------------------
     /// <summary>
     /// 攻撃ヒット時コール.
@@ -176,6 +202,9 @@ public class EnemyBase : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             IsBattle = true;
+
+            navMeshAgent.SetDestination(this.transform.position);
+            currentTarget = null;
         }
     }
  
@@ -264,6 +293,21 @@ public class EnemyBase : MonoBehaviour
  
         this.gameObject.SetActive(true);
  
+    }
+    // ----------------------------------------------------------
+    /// <summary>
+    /// ナビメッシュの次の目的地を設定.
+    /// </summary>
+    /// <param name="target"> 目的地トランスフォーム. </param>
+    // ----------------------------------------------------------
+    public void SetNextTarget( Transform target )
+    {
+        if( target == null ) return;
+        if( navMeshAgent == null ) navMeshAgent = GetComponent<NavMeshAgent>();
+ 
+        navMeshAgent.SetDestination( target.position );
+        Debug.Log( gameObject.name + "ターゲットへ移動." + target.gameObject.name );
+        currentTarget = target;
     }
  
 }

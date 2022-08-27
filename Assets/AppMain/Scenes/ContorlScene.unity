@@ -825,6 +825,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1468300422, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1468300425, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
       propertyPath: hpBar
       value: 
