@@ -303,7 +303,15 @@ public class PlayerController : MonoBehaviour
         hpBar.value = CurrentStatus.Hp;
     }
 
-    
+    public void OnHeal(int healPoint)
+    {
+        CurrentStatus.Hp += healPoint;
+        Debug.Log( "HPが" + healPoint + "回復!!" );
+
+        if(CurrentStatus.Hp > DefaultStatus.Hp) CurrentStatus.Hp = DefaultStatus.Hp;
+
+        hpBar.value = CurrentStatus.Hp; 
+    }
     
 }
 

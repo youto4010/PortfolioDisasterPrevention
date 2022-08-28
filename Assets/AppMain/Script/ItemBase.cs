@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -44,7 +43,7 @@ public class ItemBase : MonoBehaviour
             // エフェクト表示
             if(effectParticle != null)
             {
-                var pos = (itemRenderer == null)? this.transform.position : itemRenderer.gameObject.transform.position:
+                var pos = (itemRenderer == null)? this.transform.position : itemRenderer.gameObject.transform.position;
                 var obj = Instantiate(effectParticle,pos,Quaternion.identity);
                 var particle = obj.GetComponent<ParticleSystem>();
                 StartCoroutine(AutoDestroy(particle));
@@ -59,7 +58,7 @@ public class ItemBase : MonoBehaviour
     IEnumerator AutoDestroy(ParticleSystem particle)
     {
         // 先にレンダラーを消す
-        if(itemRenderer ! = null) itemRenderer.enabled = false;
+        if(itemRenderer != null) itemRenderer.enabled = false;
         yield return new WaitUntil(()=>particle.isPlaying == false);
 
         // 破棄
@@ -68,6 +67,6 @@ public class ItemBase : MonoBehaviour
 
     protected virtual void ItemAction(Collider col)
     {
-        
+
     }
 }
