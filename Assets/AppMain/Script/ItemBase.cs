@@ -1,72 +1,91 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-
-[RequireComponent(typeof(ColliderCallReceiver))]
-
+ 
+[RequireComponent( typeof( ColliderCallReceiver ) )]
+// ----------------------------------------------------------------------
+/// <summary>
+/// アイテム基底クラス.
+/// </summary>
+// ----------------------------------------------------------------------
 public class ItemBase : MonoBehaviour
 {
-    [Header("Base Param")]
-    // 取得時のエフェクトプレハブ
+    [Header( "Base Param" )]
+    // 取得時のエフェクトプレハブ.
     [SerializeField] GameObject effectParticle = null;
-    // アイテムのレンダラー
+    // アイテムのレンダラー.
     [SerializeField] Renderer itemRenderer = null;
-
-    // コライダーコール
-    ColliderCallReceiver ColliderCall = null;
-    // エフェクト実行フラグ
+    
+    // コライダーコール.
+    ColliderCallReceiver colliderCall = null;
+    // エフェクト実行済フラグ.
     bool isEffective = true;
-    // Start is called before the first frame update
+ 
+ 
     protected virtual void Start()
     {
-        ColliderCall = GetComponent<ColliderCallReceiver>();
-        ColliderCall.TriggerEnterEvent.AddListener(OnTriggerEnter);
+        colliderCall = GetComponent<ColliderCallReceiver>();
+        colliderCall.TriggerEnterEvent.AddListener( OnTriggerEnter );
     }
-
-    // Update is called once per frame
-    void Update()
+ 
+    // ----------------------------------------------------------------------
+    /// <summary>
+    /// アイテムのトリガーコライダーエンター時コール.
+    /// </summary>
+    /// <param name="col"> 侵入したコライダー. </param>
+    // ----------------------------------------------------------------------
+    void OnTriggerEnter( Collider col )
     {
-        
-    }
-
-    void OnTriggerEnter(Collider col)
-    {
-        if(isEffective == false) return;
-
-        if(col.gameObject.tag == "Player")
+        if( isEffective == false ) return;
+ 
+        if( col.gameObject.tag == "Player" )
         {
-            Debug.Log("アイテムを取得");
-            // オーバーライド可能な処理を実行
-            ItemAction(col);
+            Debug.Log( "アイテムを取得" );
+ 
+            // オーバーライド可能な処理を実行.
+            ItemAction( col );
             isEffective = false;
-
-            // エフェクト表示
-            if(effectParticle != null)
+ 
+            // エフェクト表示.
+            if( effectParticle != null )
             {
-                var pos = (itemRenderer == null)? this.transform.position : itemRenderer.gameObject.transform.position;
-                var obj = Instantiate(effectParticle,pos,Quaternion.identity);
+                var pos = ( itemRenderer == null ) ? this.transform.position : itemRenderer.gameObject.transform.position;
+                var obj = Instantiate( effectParticle, pos, Quaternion.identity );
                 var particle = obj.GetComponent<ParticleSystem>();
-                StartCoroutine(AutoDestroy(particle));
+                StartCoroutine( AutoDestroy( particle ) );
             }
             else
             {
-                Destroy(gameObject);
+                Destroy( gameObject );
             }
         }
     }
-
-    IEnumerator AutoDestroy(ParticleSystem particle)
+ 
+    // ----------------------------------------------------------------------
+    /// <summary>
+    /// 自動破棄.
+    /// </summary>
+    /// <param name="particle"> パーティクル. </param>
+    // ----------------------------------------------------------------------
+    IEnumerator AutoDestroy( ParticleSystem particle )
     {
-        // 先にレンダラーを消す
-        if(itemRenderer != null) itemRenderer.enabled = false;
-        yield return new WaitUntil(()=>particle.isPlaying == false);
-
-        // 破棄
-        Destroy(gameObject);
+        // 先にレンダラーを消す.
+        if( itemRenderer != null ) itemRenderer.enabled = false;
+ 
+        yield return new WaitUntil( () => particle.isPlaying == false );
+ 
+        // 破棄.
+        Destroy( gameObject );
     }
-
-    protected virtual void ItemAction(Collider col)
+ 
+    // ----------------------------------------------------------------------
+    /// <summary>
+    /// アイテム取得時の処理（オーバーライド可能）.
+    /// </summary>
+    /// <param name="col"> 取得したコライダー. </param>
+    // ----------------------------------------------------------------------
+    protected virtual void ItemAction( Collider col )
     {
-
+ 
     }
 }
