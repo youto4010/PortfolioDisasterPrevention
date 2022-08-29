@@ -188,6 +188,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1468300425, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
+      propertyPath: myCollider
+      value: 
+      objectReference: {fileID: 158695829}
+    - target: {fileID: 1468300425, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
       propertyPath: touchMarker
       value: 
       objectReference: {fileID: 5251711793424714080, guid: ffd13b0b56f2cd14381581bc0060116a, type: 3}
@@ -199,6 +203,10 @@ PrefabInstance:
       propertyPath: cameraController
       value: 
       objectReference: {fileID: 490372087}
+    - target: {fileID: 1468300425, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
+      propertyPath: hitParticlePrefab
+      value: 
+      objectReference: {fileID: 3809786303231446153, guid: 2a7d654a880c5a248b78fe1e0e32969c, type: 3}
     - target: {fileID: 6764518511627365930, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -264,6 +272,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d499b2600a7164ea72e1e250b91d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &158695829 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 1468300421, guid: b90ff2408a3909e49b085e59234ec7b1, type: 3}
+  m_PrefabInstance: {fileID: 158695827}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &214335558
 GameObject:
   m_ObjectHideFlags: 0

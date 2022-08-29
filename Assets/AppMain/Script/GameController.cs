@@ -20,10 +20,6 @@ public class GameController : MonoBehaviour
     [SerializeField] List<GameObject> enemyPrefabList = new List<GameObject>();
     // 敵出現地点リスト.
     [SerializeField] List<Transform> enemyGateList = new List<Transform>();
-    // ゲームクリア画面での時間表示テキスト
-    [SerializeField] Text gameClearTimeText = null;
-    // 通常時の画面に時間表示するためのテキスト
-    [SerializeField] Text timerText = null;
     // フィールド上にいる敵リスト.
     List<EnemyBase> fieldEnemys = new List<EnemyBase>();
  
@@ -37,9 +33,14 @@ public class GameController : MonoBehaviour
  
     // ボス出現フラグ.
     bool isBossAppeared = false;
-    // 現在の時間
+ 
+    // ゲームクリア画面での時間表示テキスト.
+    [SerializeField] Text gameClearTimeText = null;
+    // 通常時の画面に時間表示するためのテキスト.
+    [SerializeField] Text timerText = null;
+    //! 現在の時間.
     float currentTime = 0;
-    // 時間計測フラグ
+    //! 時間計測フラグ.
     bool isTimer = false;
  
     void Start()
@@ -51,16 +52,23 @@ public class GameController : MonoBehaviour
         Init();
  
     }
-
+ 
     void Update()
     {
-        if(isTimer == true)
+        if (isTimer == true)
         {
             currentTime += Time.deltaTime;
-            if(currentTime>999f)timerText.text = "999.9";
+            if (currentTime > 999f) timerText.text = "999.9";
             else timerText.text = currentTime.ToString("000.0");
         }
     }
+ 
+    // --------------------------------------------------------------------- 
+    /// <summary> 
+    /// 初期化処理. 
+    /// </summary> 
+    // ---------------------------------------------------------------------
+    // --------------------------------------------------------------------- 
     /// <summary> 
     /// 初期化処理. 
     /// </summary> 
@@ -73,7 +81,7 @@ public class GameController : MonoBehaviour
  
         currentBossCount = 0;
         isBossAppeared = false;
-
+ 
         currentTime = 0;
         isTimer = true;
         timerText.text = "0:00";
@@ -201,9 +209,9 @@ public class GameController : MonoBehaviour
         {
             Debug.Log("GameClear!!");
             isTimer = false;
-
-            if(currentTime>999f)gameClearTimeText.text = "Time : 999.9";
-            else gameClearTimeText.text = "Time :" + currentTime.ToString("000.0"); 
+ 
+            if (currentTime > 999f) gameClearTimeText.text = "Time : 999.9";
+            else gameClearTimeText.text = "Time : " + currentTime.ToString("000.0");
             // ゲームクリアを表示.
             gameClear.SetActive(true);
  
