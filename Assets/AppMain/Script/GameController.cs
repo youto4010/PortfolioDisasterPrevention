@@ -75,12 +75,12 @@ public class GameController : MonoBehaviour
     // ---------------------------------------------------------------------
     void Init()
     {
-        // 敵の生成開始.
-        isEnemySpawn = true;
-        StartCoroutine(EnemyCreateLoop());
+        // // 敵の生成開始.
+        // isEnemySpawn = true;
+        // StartCoroutine(EnemyCreateLoop());
  
-        currentBossCount = 0;
-        isBossAppeared = false;
+        // currentBossCount = 0;
+        // isBossAppeared = false;
  
         currentTime = 0;
         isTimer = true;
@@ -92,22 +92,22 @@ public class GameController : MonoBehaviour
     /// 敵生成ループコルーチン.
     /// </summary>
     // --------------------------------------------------------------------- 
-    IEnumerator EnemyCreateLoop()
-    {
-        while (isEnemySpawn == true)
-        {
-            yield return new WaitForSeconds(2f);
+    // IEnumerator EnemyCreateLoop()
+    // {
+    //     while (isEnemySpawn == true)
+    //     {
+    //         yield return new WaitForSeconds(2f);
  
-            if (fieldEnemys.Count < 10)
-            {
-                CreateEnemy();
-            }
-            // 10体以上倒していたら生成中止.
-            if (currentBossCount > 10) isEnemySpawn = false;
+    //         if (fieldEnemys.Count < 10)
+    //         {
+    //             CreateEnemy();
+    //         }
+    //         // 10体以上倒していたら生成中止.
+    //         if (currentBossCount > 10) isEnemySpawn = false;
  
-            if (isEnemySpawn == false) break;
-        }
-    }
+    //         if (isEnemySpawn == false) break;
+    //     }
+    // }
  
     // --------------------------------------------------------------------- 
     /// <summary>
@@ -137,22 +137,22 @@ public class GameController : MonoBehaviour
     /// 敵を作成.
     /// </summary>
     // ---------------------------------------------------------------------
-    void CreateEnemy()
-    {
-        var num = Random.Range(0, enemyPrefabList.Count);
-        var prefab = enemyPrefabList[num];
+    // void CreateEnemy()
+    // {
+    //     var num = Random.Range(0, enemyPrefabList.Count);
+    //     var prefab = enemyPrefabList[num];
  
-        var posNum = Random.Range(0, enemyGateList.Count);
-        var pos = enemyGateList[posNum];
+    //     var posNum = Random.Range(0, enemyGateList.Count);
+    //     var pos = enemyGateList[posNum];
  
-        var obj = Instantiate(prefab, pos.position, Quaternion.identity);
-        var enemy = obj.GetComponent<EnemyBase>();
+    //     var obj = Instantiate(prefab, pos.position, Quaternion.identity);
+    //     var enemy = obj.GetComponent<EnemyBase>();
  
-        enemy.ArrivalEvent.AddListener(EnemyMove);
-        enemy.DestroyEvent.AddListener(EnemyDestroy);
+    //     enemy.ArrivalEvent.AddListener(EnemyMove);
+    //     enemy.DestroyEvent.AddListener(EnemyDestroy);
  
-        fieldEnemys.Add(enemy);
-    }
+    //     fieldEnemys.Add(enemy);
+    // }
  
  
     // ---------------------------------------------------------------------

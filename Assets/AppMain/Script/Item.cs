@@ -1,43 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-[Serializable]
-[CreateAssetMenu(fileName = "Item", menuName = "CreateItem")]
-
-public class Item :ScriptableObject{
-        public enum KindOfItem{
-            Tool,
-            Food
-        }
-
-    // アイテムの種類
-    [SerializeField]
-    private KindOfItem kindOfItem;
-    // アイテムのアイコン
-    [SerializeField]
-    private Sprite icon;
-    // アイテムの名前
+[CreateAssetMenu(fileName="Items",menuName="Items/item")]
+public class Item : ScriptableObject
+{
     [SerializeField]
     private string itemName;
-    // アイテムの情報
     [SerializeField]
-    private string information;
+    private Sprite itemImage;
 
-    public KindOfItem GetKindOfItem(){
-        return kindOfItem;
-    }
-
-    public Sprite GetIcon(){
-        return icon;
-    }
-
-    public string GetItemName(){
-        return itemName;
-    }
-
-    public string GetInformation(){
-        return information;
-    }
+    public string MyItemName {get => itemName;}
+    public Sprite MyItemImage {get => itemImage;}
 }
