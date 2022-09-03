@@ -5,13 +5,18 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
-
-    Image image;
-    Item item;
+    Item item = default;
+    [SerializeField]Image image = default;
+    [SerializeField]GameObject backgroundPanel = default;
 
     private void Awake()
     {
-        image = GetComponent<Image>();
+        // image = GetComponent<Image>();
+    }
+
+    private void Start()
+    {
+        backgroundPanel.SetActive(false);
     }
 
     public bool IsEmpty()
@@ -32,5 +37,20 @@ public class Slot : MonoBehaviour
     void UpdateImage(Item item)
     {
         image.sprite = item.sprite;
+    }
+
+    public bool OnSelected()
+    {
+        if(item==null)
+        {
+            return false;
+        }
+        backgroundPanel.SetActive(true);
+        return true;
+    }
+
+    public void HideBgPanel()
+    {
+        backgroundPanel.SetActive(false);
     }
 }
