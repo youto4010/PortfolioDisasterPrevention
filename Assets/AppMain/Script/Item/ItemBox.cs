@@ -37,10 +37,37 @@ public class ItemBox : MonoBehaviour
         {
             slot.HideBgPanel();
         }
+        selectedSlot = null;
 
         if(slots[position].OnSelected())
         {
             selectedSlot = slots[position];
         }
+    }
+
+    public bool TryUseItem(Item.Type type)
+    {
+        // 選択アイテムスロットがあるかどうか
+        if(selectedSlot == null)
+        {
+            return false;
+        }
+        if(selectedSlot.GetItem().type == type)
+        {
+            selectedSlot.SetItem(null);
+            selectedSlot.HideBgPanel();
+            selectedSlot = null;
+            return true;
+        }
+        return false;
+    }
+
+    public Item GetSelectedItem()
+    {
+        if(selectedSlot == null)
+        {
+            return null;
+        }
+        return selectedSlot.GetItem();
     }
 }

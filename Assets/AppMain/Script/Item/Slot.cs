@@ -34,9 +34,21 @@ public class Slot : MonoBehaviour
         UpdateImage(item);
     }
 
+    public Item GetItem()
+    {
+        return item;
+    }
+
     void UpdateImage(Item item)
     {
-        image.sprite = item.sprite;
+        if(item == null)
+        {
+            image.sprite = null;
+        }
+        else
+        {
+            image.sprite = item.sprite;
+        }
     }
 
     public bool OnSelected()
