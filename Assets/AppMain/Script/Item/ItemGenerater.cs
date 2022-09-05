@@ -19,7 +19,19 @@ public class ItemGenerater : MonoBehaviour
         {
             if(item.type == type)
             {
-                return new Item(item.type,item.sprite);
+                return new Item(item.type,item.sprite,item.zoomObj);
+            }
+        }
+        return null;
+    }
+
+    public GameObject GetZoomItem(Item.Type type)
+    {
+        foreach(Item item in itemListEntity.itemList)
+        {
+            if(item.type == type)
+            {
+                return item.zoomObj;
             }
         }
         return null;

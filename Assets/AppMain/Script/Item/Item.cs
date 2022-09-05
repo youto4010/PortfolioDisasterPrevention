@@ -15,11 +15,13 @@ public class Item
 
     public Type type;
     public Sprite sprite;
+    public GameObject zoomObj;
 
-    public Item(Type type,Sprite sprite)
+    public Item(Type type,Sprite sprite,GameObject zoomObj)
     {
         this.type = type;
         this.sprite = sprite;
+        this.zoomObj = zoomObj;
     }
 
 }
