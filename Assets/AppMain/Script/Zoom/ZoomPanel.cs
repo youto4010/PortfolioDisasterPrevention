@@ -10,7 +10,11 @@ public class ZoomPanel : MonoBehaviour
     // やること
     // Zoomボタンを押されたら、パネルを表示
     // Closeボタンを押されたら、パネルを非表示にする
-
+    private void Start()
+    {
+        panel.SetActive(false);
+    }
+    
     public void ShowPanel()
     {
         Item item = ItemBox.instance.GetSelectedItem();
@@ -19,7 +23,7 @@ public class ZoomPanel : MonoBehaviour
             Destroy(zoomObj);
             panel.SetActive(true);
             GameObject zoomObjPrefab = ItemGenerater.instance.GetZoomItem(item.type);
-            Instantiate(zoomObjPrefab,objParent);
+            zoomObj = Instantiate(zoomObjPrefab,objParent);
         }
     }
 
