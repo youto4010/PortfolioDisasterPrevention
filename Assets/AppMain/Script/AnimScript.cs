@@ -7,7 +7,7 @@ public class AnimScript : MonoBehaviour
     [SerializeField] Animator anim = default;
     // [SerializeField] ColliderCallReceiver aroundColliderCall = null;
     bool shelfFallen = false;
-    float damage = 2;
+    int damage = 2;
     [SerializeField] int hindranceDamage = 2;
     
     // Start is called before the first frame update
@@ -30,7 +30,8 @@ public class AnimScript : MonoBehaviour
             {
                 anim.Play("WallAnimation");
                 shelfFallen = true;
-                Debug.Log("A");
+                PlayerController.instance.OnDamage(hindranceDamage);
+                Debug.Log("残りHPは"+PlayerController.instance.CurrentStatus.Hp);
             }
         }
     }

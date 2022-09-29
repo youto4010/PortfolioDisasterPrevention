@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
+    public static PlayerController instance;
+
     [SerializeField] GameObject attackHit = null;
     [SerializeField] float jumpPower =20f;
     [SerializeField] ColliderCallReceiver footColliderCall = null;
@@ -52,6 +54,15 @@ public class PlayerController : MonoBehaviour
     Quaternion startRotation = new Quaternion();
 
     int hindranceDamage = 2;
+
+    public void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+    
     void Start()
     {
         animator = GetComponent<Animator>();
