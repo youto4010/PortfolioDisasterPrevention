@@ -11,6 +11,10 @@ public class Item
     {
         Cube,
         Ball,
+        Bar,
+        Rope,
+        Tanker,
+        Water,
     }
 
     public Type type;

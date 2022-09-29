@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     // パーティクルオブジェクト保管リスト
     List<GameObject> particleObjectList = new List<GameObject>();
     [SerializeField] Slider hpBar= null;
+    [SerializeField] ColliderCallReceiver aroundColliderCall = null;
     Animator animator = null;
     Rigidbody rigid = null;
     bool isAttack = false;
@@ -49,6 +50,8 @@ public class PlayerController : MonoBehaviour
     Vector3 startPosition = new Vector3();
     // 開始角度
     Quaternion startRotation = new Quaternion();
+
+    int hindranceDamage = 2;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -58,6 +61,8 @@ public class PlayerController : MonoBehaviour
         footColliderCall.TriggerExitEvent.AddListener(OnFootTriggerExit);
         // 攻撃判定用コライダーイベント登録
         attackHitCall.TriggerEnterEvent.AddListener(OnAttackHitTriggerEnter);
+        // 障害物ダメージコライダーイベント
+        // aroundColliderCall.TriggerStayEvent.AddListener( OnHindranceTriggerStay );
         // 現在のステータスの初期化
         CurrentStatus.Hp = DefaultStatus.Hp;
         CurrentStatus.Power = DefaultStatus.Power;
@@ -313,5 +318,14 @@ public class PlayerController : MonoBehaviour
         hpBar.value = CurrentStatus.Hp; 
     }
     
+    public void OnDamage(int hindranceDamage)
+    {
+        CurrentStatus.Hp -= hindranceDamage;
+        Debug.Log( "HPが" + hindranceDamage + "減少！！" );
+
+        if(CurrentStatus.Hp > DefaultStatus.Hp) CurrentStatus.Hp = DefaultStatus.Hp;
+
+        hpBar.value = CurrentStatus.Hp; 
+    }
 }
 
