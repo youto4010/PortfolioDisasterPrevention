@@ -9,6 +9,18 @@ EditorBuildSettings:
     path: Assets/AppMain/Scenes/Title.unity
     guid: 4de2e804f6001e8459aa7564d764602e
   - enabled: 1
+    path: Assets/AppMain/Scenes/ConversationScene/ConversationScene1.unity
+    guid: 02109a72b13e07f49a6cf2d9ab990e6c
+  - enabled: 1
+    path: Assets/AppMain/Scenes/ElevatorScene/ElevatorScene.unity
+    guid: 60446731ef19a294fbc2fe7440787b7d
+  - enabled: 1
+    path: Assets/AppMain/Scenes/ConversationScene/ConversationScene2.unity
+    guid: f6dc8f51095c04e4aa6f541b0c81e37e
+  - enabled: 1
+    path: Assets/AppMain/Scenes/ElevatorScene/ElevatorScene1.unity
+    guid: 19cd424ef4effef4383457d128e7ada8
+  - enabled: 1
     path: Assets/AppMain/Scenes/ContorlScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
