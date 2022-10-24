@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class ShotSrc : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject Fire;
+    [SerializeField] private GameObject Smog;
     [SerializeField] private Transform muzzle;
     [SerializeField] private float bulletPower = 500f;
     [SerializeField] Slider FireBar= null;
@@ -41,11 +44,14 @@ public class ShotSrc : MonoBehaviour
             CurrentStatus.Hp -= WaterPoint;
             // transform.position = Vector3.MoveTowards(transform.position,direction,step);
             Destroy(bulletInstance,5f);
+            Debug.Log(CurrentStatus.Hp);
         }
 
         if(CurrentStatus.Hp == 0)
         {
-            
+            Fire.SetActive(false);
+            Smog.SetActive(true);
+            // SceneManager.LoadScene( "ConversationScene" );
         }
     }
 
