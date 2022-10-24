@@ -27,6 +27,7 @@ public class ShotSrc : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FireBar = GameObject.Find("Slider").GetComponent<Slider>();
         // スライダーの初期設定
         FireBar.maxValue = DefaultStatus.Hp;
         FireBar.value = CurrentStatus.Hp;
@@ -43,15 +44,15 @@ public class ShotSrc : MonoBehaviour
             bulletInstance.GetComponent<Rigidbody>().AddForce(bulletInstance.transform.up*bulletPower);
             CurrentStatus.Hp -= WaterPoint;
             // transform.position = Vector3.MoveTowards(transform.position,direction,step);
+            FireBar.value = CurrentStatus.Hp;
             Destroy(bulletInstance,5f);
-            Debug.Log(CurrentStatus.Hp);
         }
 
         if(CurrentStatus.Hp == 0)
         {
             Fire.SetActive(false);
             Smog.SetActive(true);
-            // SceneManager.LoadScene( "ConversationScene" );
+            SceneManager.LoadScene( "ConversationScene4" );
         }
     }
 
