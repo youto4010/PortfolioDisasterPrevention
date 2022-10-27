@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 1364358}
   - component: {fileID: 1364353}
   - component: {fileID: 1364355}
+  - component: {fileID: 1364362}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -172,10 +173,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 1364354}
-  selectedCommands:
-  - {fileID: 1364353}
+  selectedBlocks: []
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -189,7 +188,7 @@ MonoBehaviour:
   luaBindingName: flowchart
 --- !u!114 &1364353
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -244,11 +243,12 @@ MonoBehaviour:
   - {fileID: 1364358}
   - {fileID: 1364353}
   - {fileID: 1364355}
+  - {fileID: 1364362}
   - {fileID: 1364361}
   suppressAllAutoSelections: 0
 --- !u!114 &1364355
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -304,7 +304,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1364358
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -331,7 +331,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1364359
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -358,7 +358,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1364360
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -399,9 +399,36 @@ MonoBehaviour:
   indentLevel: 0
   _sceneName:
     stringRef: {fileID: 0}
-    stringVal: ElevatorScene
+    stringVal: EvacuationScene
   loadingImage: {fileID: 0}
   sceneNameOLD: 
+--- !u!114 &1364362
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 14
+  indentLevel: 0
+  storyText: "\u30A2\u30A4\u30C6\u30E0\u3092\u99C6\u4F7F\u3057\u3066\u907F\u96E3\u6240\u3092\u76EE\u6307\u305D\u3046"
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!1 &20704689
 GameObject:
   m_ObjectHideFlags: 0

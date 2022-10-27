@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: ItemListEntity
   m_EditorClassIdentifier: 
   itemList:
-  - type: 0
-    sprite: {fileID: 21300000, guid: a98c403fae0f5f445863c976025cda33, type: 3}
-    zoomObj: {fileID: 8998021781221025097, guid: 407e9aba9eccfcf43976539be52fc4a1, type: 3}
-  - type: 1
-    sprite: {fileID: 21300000, guid: a025e7121ed03cc44babd98bb13793b2, type: 3}
-    zoomObj: {fileID: 1701868761160124025, guid: 84f5105c1cd9c2648a1c3f36918e741c, type: 3}
+  - type: 3
+    sprite: {fileID: 21300000, guid: 18575083f8da3a648b68810796f2d7e3, type: 3}
+    zoomObj: {fileID: 7513507304558381172, guid: 548095a9d76c2214888b35d0258183a6, type: 3}
+  - type: 4
+    sprite: {fileID: 21300000, guid: bb835e94c8b98e74d944fbaf31933ba1, type: 3}
+    zoomObj: {fileID: 1724368431017272844, guid: ad9926e569934414ebf8106d9ec1f1da, type: 3}
   - type: 2
     sprite: {fileID: 21300000, guid: a025e7121ed03cc44babd98bb13793b2, type: 3}
     zoomObj: {fileID: 7484153649241162074, guid: 9fddc8b4133590849acf7884511416f1, type: 3}
