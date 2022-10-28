@@ -21,6 +21,21 @@ EditorBuildSettings:
     path: Assets/AppMain/Scenes/ElevatorScene/ElevatorScene1.unity
     guid: 19cd424ef4effef4383457d128e7ada8
   - enabled: 1
+    path: Assets/AppMain/Scenes/ConversationScene/ConversationScene3.unity
+    guid: 2e9bc7242949fc649b1c5a51efc0daf4
+  - enabled: 1
+    path: Assets/AppMain/Scenes/FireExtingusher/FireExtingusherScene.unity
+    guid: 89226e961c5d50946a99e8cba0e2a965
+  - enabled: 1
+    path: Assets/AppMain/Scenes/ShootingScene.unity
+    guid: fa2ff92d82d3ed242989f090408e9b91
+  - enabled: 1
+    path: Assets/AppMain/Scenes/ConversationScene/ConversationScene4.unity
+    guid: 142c5fb0e62c19b42bf9175de506c6fb
+  - enabled: 1
     path: Assets/AppMain/Scenes/ContorlScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/AppMain/Scenes/EvacuationScene.unity
+    guid: c96b9b44f8e116f448b7fdc9e51d18fc
   m_configObjects: {}

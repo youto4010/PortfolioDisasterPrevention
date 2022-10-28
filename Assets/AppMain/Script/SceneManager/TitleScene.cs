@@ -19,6 +19,6 @@ public class TitleScene : MonoBehaviour
 
     public void OnScreenTap()
     {
-        SceneManager.LoadScene( "ContorlScene" );
+        SceneManager.LoadScene( "ConversationScene1" );
     }
 }

@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 1364358}
   - component: {fileID: 1364355}
   - component: {fileID: 1364353}
+  - component: {fileID: 1364360}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -173,7 +174,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1364354}
   selectedCommands:
-  - {fileID: 1364353}
+  - {fileID: 1364360}
   variables: []
   description: 
   stepPause: 0
@@ -187,7 +188,7 @@ MonoBehaviour:
   luaBindingName: flowchart
 --- !u!114 &1364353
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -202,7 +203,7 @@ MonoBehaviour:
   storyText: "\u5927\u4E08\u592B\u3067\u3059\uFF01\u3088\u304B\u3063\u305F\uFF01"
   description: 
   character: {fileID: 1857542823}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7d03e4c5ff74d334da9b2114985b575a, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -241,10 +242,11 @@ MonoBehaviour:
   - {fileID: 1364358}
   - {fileID: 1364355}
   - {fileID: 1364353}
+  - {fileID: 1364360}
   suppressAllAutoSelections: 0
 --- !u!114 &1364355
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -300,7 +302,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1364358
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -327,7 +329,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1364359
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -342,7 +344,7 @@ MonoBehaviour:
   storyText: "\u6C34\u3084\u98DF\u6599\u304C\u5165\u3063\u3066\u308B\u3001\u3057\u3070\u3089\u304F\u5927\u4E08\u592B\u305D\u3046\u3060"
   description: 
   character: {fileID: 1857542823}
-  portrait: {fileID: 21300000, guid: 63df3d6b03416d44cb446e590f333521, type: 3}
+  portrait: {fileID: 21300000, guid: 7d03e4c5ff74d334da9b2114985b575a, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -352,6 +354,25 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &1364360
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d03ae0919f04264b018681ed534177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 16
+  indentLevel: 0
+  _sceneName:
+    stringRef: {fileID: 0}
+    stringVal: ConversationScene4
+  loadingImage: {fileID: 0}
+  sceneNameOLD: 
 --- !u!1 &20704689
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,14 +913,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: "\u521D\u97F3\u30DF\u30AF"
+  nameText: Player
   nameColor: {r: 0.06915268, g: 0.9905656, b: 0.990566, a: 1}
   soundEffect: {fileID: 0}
   portraits:
-  - {fileID: 21300000, guid: 63df3d6b03416d44cb446e590f333521, type: 3}
-  - {fileID: 21300000, guid: 32a6aca4764eac046aba4f062e8dcef4, type: 3}
-  - {fileID: 21300000, guid: c3cbeae0bf7d06b41bfb2c3880790ff2, type: 3}
-  - {fileID: 21300000, guid: 5bdd8cebf6ba46f4fa58e7666fb93f57, type: 3}
+  - {fileID: 21300000, guid: 7d03e4c5ff74d334da9b2114985b575a, type: 3}
   portraitsFace: 0
   setSayDialog: {fileID: 0}
   description: 

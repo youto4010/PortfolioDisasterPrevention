@@ -178,7 +178,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1364354}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1364358}
   variables: []
   description: 
   stepPause: 0
@@ -224,7 +225,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 70.06186
-    y: 72
+    y: 73.42857
     width: 111.714264
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -318,7 +319,7 @@ MonoBehaviour:
   storyText: "\u975E\u5E38\u7528\u30DC\u30C3\u30AF\u30B9\u3092\u958B\u3051\u3088\u3046"
   description: 
   character: {fileID: 1857542823}
-  portrait: {fileID: 21300000, guid: c3cbeae0bf7d06b41bfb2c3880790ff2, type: 3}
+  portrait: {fileID: 21300000, guid: 7d03e4c5ff74d334da9b2114985b575a, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -345,7 +346,7 @@ MonoBehaviour:
   storyText: "\u308F\u304B\u308A\u307E\u3057\u305F\uFF01"
   description: 
   character: {fileID: 1857542823}
-  portrait: {fileID: 21300000, guid: c3cbeae0bf7d06b41bfb2c3880790ff2, type: 3}
+  portrait: {fileID: 21300000, guid: 7d03e4c5ff74d334da9b2114985b575a, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -426,7 +427,7 @@ MonoBehaviour:
   storyText: "\u306F\u3044\u30FB\u30FB\u30FB\u3067\u3082\u30A8\u30EC\u30D9\u30FC\u30BF\u30FC\u306B\u9589\u3058\u8FBC\u3081\u3089\u308C\u3066\u3057\u307E\u3063\u3066"
   description: 
   character: {fileID: 1857542823}
-  portrait: {fileID: 21300000, guid: 32a6aca4764eac046aba4f062e8dcef4, type: 3}
+  portrait: {fileID: 21300000, guid: 7d03e4c5ff74d334da9b2114985b575a, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -480,7 +481,7 @@ MonoBehaviour:
   storyText: "\u30FB\u30FB\u30FB"
   description: 
   character: {fileID: 1857542823}
-  portrait: {fileID: 21300000, guid: 32a6aca4764eac046aba4f062e8dcef4, type: 3}
+  portrait: {fileID: 21300000, guid: 7d03e4c5ff74d334da9b2114985b575a, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -507,7 +508,7 @@ MonoBehaviour:
   storyText: "\u975E\u5E38\u7528\u30DC\u30BF\u30F3\u3092\u62BC\u3057\u305F\u3088\uFF01\uFF01"
   description: 
   character: {fileID: 1857542823}
-  portrait: {fileID: 21300000, guid: c3cbeae0bf7d06b41bfb2c3880790ff2, type: 3}
+  portrait: {fileID: 21300000, guid: 7d03e4c5ff74d334da9b2114985b575a, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1057,14 +1058,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: "\u521D\u97F3\u30DF\u30AF"
+  nameText: Player
   nameColor: {r: 0.06915268, g: 0.9905656, b: 0.990566, a: 1}
   soundEffect: {fileID: 0}
   portraits:
-  - {fileID: 21300000, guid: 63df3d6b03416d44cb446e590f333521, type: 3}
-  - {fileID: 21300000, guid: 32a6aca4764eac046aba4f062e8dcef4, type: 3}
-  - {fileID: 21300000, guid: c3cbeae0bf7d06b41bfb2c3880790ff2, type: 3}
-  - {fileID: 21300000, guid: 5bdd8cebf6ba46f4fa58e7666fb93f57, type: 3}
+  - {fileID: 21300000, guid: 7d03e4c5ff74d334da9b2114985b575a, type: 3}
   portraitsFace: 0
   setSayDialog: {fileID: 0}
   description: 
