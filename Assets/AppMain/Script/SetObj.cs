@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class SetObj : MonoBehaviour
 {
-    [SerializeField] GameObject setObject;
+    [SerializeField] GameObject setObjectAppear;
+    [SerializeField] GameObject setObjectDisappear;
     [SerializeField] Item.Type userItem;
     // 適切なアイテムを選択した状態で
     // このオブジェクトをクリックしたら
-    public void OnClickThis()
+    public void OnClickAppear()
     {
         // 適切なアイテムを選択した状態で
         bool hasItem = ItemBox.instance.TryUseItem(userItem);
         if(hasItem)
         {
             // アイテムを表示する
-            setObject.SetActive(true);
+            setObjectAppear.SetActive(true);
+        }
+    }
+    public void OnClickDisappear()
+    {
+        // 適切なアイテムを選択した状態で
+        bool hasItem = ItemBox.instance.TryUseItem(userItem);
+        if(hasItem)
+        {
+            // アイテムを表示する
+            setObjectDisappear.SetActive(false);
         }
     }
 }

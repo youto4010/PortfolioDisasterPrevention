@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
  
 public class GameController : MonoBehaviour
 {
@@ -60,6 +61,11 @@ public class GameController : MonoBehaviour
             currentTime += Time.deltaTime;
             if (currentTime > 999f) timerText.text = "999.9";
             else timerText.text = currentTime.ToString("000.0");
+        }
+
+        if(player.CurrentStatus.Hp == 0)
+        {
+            OnGameOver();
         }
     }
  
@@ -249,21 +255,17 @@ public class GameController : MonoBehaviour
     // ---------------------------------------------------------------------
     public void OnRetryButtonClicked()
     {
-        // プレイヤーリトライ処理.
-        player.Retry();
-        // 敵のリトライ処理.
-        foreach (EnemyBase enemy in fieldEnemys)
-        {
-            Destroy(enemy.gameObject);
-        }
-        fieldEnemys.Clear();
-        // プレイヤーを表示.
-        player.gameObject.SetActive(true);
-        // ゲームオーバーを非表示.
-        gameOver.SetActive(false);
-        // ゲームクリアを非表示.
-        gameClear.SetActive(false);
+        // // プレイヤーリトライ処理.
+        // player.Retry();
+        // fieldEnemys.Clear();
+        // // プレイヤーを表示.
+        // player.gameObject.SetActive(true);
+        // // ゲームオーバーを非表示.
+        // gameOver.SetActive(false);
+        // // ゲームクリアを非表示.
+        // gameClear.SetActive(false);
  
-        Init();
+        // Init();
+        SceneManager.LoadScene("ContorlScene");
     }
 }

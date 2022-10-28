@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+
 public class PlayerController : MonoBehaviour
 {
 
@@ -306,17 +307,17 @@ public class PlayerController : MonoBehaviour
     }
     public void Retry()
     {
-        // 現在のステータスの初期化
-        CurrentStatus.Hp = DefaultStatus.Hp;
-        CurrentStatus.Power = DefaultStatus.Power;
-        // 一回転を初期位置に戻す
-        this.transform.position = startPosition;
-        this.transform.rotation = startRotation;
+        // // 現在のステータスの初期化
+        // CurrentStatus.Hp = DefaultStatus.Hp;
+        // CurrentStatus.Power = DefaultStatus.Power;
+        // // 一回転を初期位置に戻す
+        // this.transform.position = startPosition;
+        // this.transform.rotation = startRotation;
 
-        // 攻撃処理の途中でやられた時用
-        isAttack = false;
+        // // 攻撃処理の途中でやられた時用
+        // isAttack = false;
 
-        hpBar.value = CurrentStatus.Hp;
+        // hpBar.value = CurrentStatus.Hp;
     }
 
     public void OnHeal(int healPoint)
@@ -338,5 +339,6 @@ public class PlayerController : MonoBehaviour
 
         hpBar.value = CurrentStatus.Hp; 
     }
+
 }
 
