@@ -52,7 +52,7 @@ public class ShotSrc : MonoBehaviour
         {
             Fire.SetActive(false);
             Smog.SetActive(true);
-            SceneManager.LoadScene( "ConversationScene4" );
+            SceneManager.LoadScene( "ConversationScene5" );
         }
     }
 

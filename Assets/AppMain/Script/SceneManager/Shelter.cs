@@ -9,7 +9,7 @@ public class Shelter : MonoBehaviour
     {
         if(other.gameObject.tag =="Player")
         {
-            SceneManager.LoadScene("ConversationScene5");
+            SceneManager.LoadScene("ConversationScene6");
             Debug.Log("避難所に到着しました");
         }
     }

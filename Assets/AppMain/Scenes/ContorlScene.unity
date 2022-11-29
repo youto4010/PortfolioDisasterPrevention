@@ -1151,6 +1151,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tentParts (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7eca2f93bc3e3e84a99a6478921e1c2d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eca2f93bc3e3e84a99a6478921e1c2d, type: 3}
 --- !u!1 &637753391 stripped
@@ -3779,6 +3783,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 61b230e26a3c7864caac1c7d593a8b26, type: 3}
   m_PrefabInstance: {fileID: 1665856963}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1567888679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567888677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98bbfbe6f1311b4ab8908280a159293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setObjectAppear: {fileID: 1567888677}
+  setObjectDisappear: {fileID: 1836821886}
+  userItem: 3
 --- !u!114 &1588166220 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3245752541871170525, guid: 2fc8713e815523745989b976ce6bec9e, type: 3}
@@ -4081,7 +4100,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1836821886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d98bbfbe6f1311b4ab8908280a159293, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a999bce9b94ce142aaf859e98606918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   setObjectAppear: {fileID: 1567888677}
@@ -4105,20 +4124,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1836821887}
-          m_TargetAssemblyTypeName: SetObj, Assembly-CSharp
-          m_MethodName: OnClickAppear
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1836821887}
-          m_TargetAssemblyTypeName: SetObj, Assembly-CSharp
-          m_MethodName: OnClickDisappear
+          m_TargetAssemblyTypeName: SetTent, Assembly-CSharp
+          m_MethodName: OnClick
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
